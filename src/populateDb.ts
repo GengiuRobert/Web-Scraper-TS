@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { Book } = require('../dist/bookModel.js');
+const { Book } = require('./models/bookModel.ts');
 const fs = require('fs');
 const path = require('path');
 

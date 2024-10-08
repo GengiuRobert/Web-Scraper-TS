@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
-const { Book } = require('./bookModel.ts');
+const { Book } = require('./models/bookModel.ts');
 
 const router = express.Router();
 
@@ -19,7 +19,7 @@ interface BookType {
     wordsNumber?: number;
 }
 
-// Create new book
+//create new book
 router.post('/books', async (req: Request<{}, {}, BookType>, res: Response) => {
     try {
         const book = new Book(req.body);
@@ -30,7 +30,7 @@ router.post('/books', async (req: Request<{}, {}, BookType>, res: Response) => {
     }
 });
 
-// Read books
+//read books
 router.get('/books', async (req: Request, res: Response) => {
     try {
         const books = await Book.find();
@@ -40,15 +40,16 @@ router.get('/books', async (req: Request, res: Response) => {
     }
 });
 
+//update book
 router.put('/books/:id', async (req: Request, res: Response) => {
-    try{
+    try {
         const { id } = req.params
         const book = await Book.findByIdAndUpdate(id, req.body);
-        if(!book){
-            res.status(500).send({message: "nu merge morti mati"})
+        if (!book) {
+            res.status(500).send({ message: "something went wrong when updating" })
         }
         const updatedBook = await Book.findById(id)
-        if(updatedBook){
+        if (updatedBook) {
             res.status(201).send(updatedBook)
         }
     }
@@ -57,19 +58,20 @@ router.put('/books/:id', async (req: Request, res: Response) => {
     }
 })
 
+//delete book by id
 router.delete('/books/:id', async (req: Request, res: Response) => {
-    try{
+    try {
         const id = req.params.id
         const book = await Book.findByIdAndDelete(id)
-        if(!book){
-            res.status(404).send({message: "morti mati nu e cartea"})
+        if (!book) {
+            res.status(404).send({ message: "book does not exist" })
         }
-        else{
+        else {
             res.status(201).send(book)
         }
-        
+
     }
-    catch (error: any){
+    catch (error: any) {
         res.status(500).send(error)
     }
 })
