@@ -61,7 +61,7 @@ const deleteBookById = async (req: Request, res: Response) => {
 };
 
 //export modules
-module.exports = {
+export default {
     createNewBook,
     readAllBooks,
     updateBookById,
