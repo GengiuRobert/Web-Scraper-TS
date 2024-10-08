@@ -16,14 +16,13 @@ async function populate() {
 
         for (const book of books) {
 
-            const existingBook = await Book.findOne({ title: book.title });
-
+            const existingBook = await Book.findOne({ title: book.titleName });
             if (!existingBook) {
                 const newBook = new Book(book);
                 await newBook.save();
-                console.log(`Book "${book.title}" saved!`);
+                console.log(`Book "${book.titleName}" saved!`);
             } else {
-                console.log(`Book "${book.title}" already exists.`);
+                console.log(`Book "${book.titleName}" already exists.`);
             }
         }
 

@@ -162,7 +162,7 @@ const scrapeAction = async () => {
 
     fs.writeFileSync('booksData.json', JSON.stringify(booksData, null, 2));
 
-    console.log(booksData);
+    console.log("completed scraping");
 
     //close the broswer, else it is runing and never closes
     await browser.close();

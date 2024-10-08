@@ -76,7 +76,7 @@ const scrapeBooks = async (req: Request, res: Response) => {
 //populate db with infos from the json file that results after scraping
 const populateDataBaseBooks = async (req: Request, res: Response) => {
     try {
-        await scrapeAction();
+        await populate();
         res.status(200).send({ message: "done populating data base" });
     } catch (error) {
         console.log(error);
