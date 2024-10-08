@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import { Book } from "../models/bookModel";
+import scrapeAction from "../scraper";
+import populate from "../populateDb";
 
 //create new book 
 const createNewBook = async (req: Request, res: Response) => {
@@ -60,10 +62,34 @@ const deleteBookById = async (req: Request, res: Response) => {
     }
 };
 
+//scrape books
+const scrapeBooks = async (req: Request, res: Response) => {
+    try {
+        await scrapeAction();
+        res.status(200).send({ message: "done scraping" });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({ message: "error during scraping" });
+    }
+};
+
+//populate db with infos from the json file that results after scraping
+const populateDataBaseBooks = async (req: Request, res: Response) => {
+    try {
+        await scrapeAction();
+        res.status(200).send({ message: "done populating data base" });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({ message: "error during populating data base" });
+    }
+};
+
 //export modules
 export default {
     createNewBook,
     readAllBooks,
     updateBookById,
     deleteBookById,
+    scrapeBooks,
+    populateDataBaseBooks
 };

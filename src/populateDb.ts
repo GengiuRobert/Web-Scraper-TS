@@ -4,8 +4,6 @@ const fs = require('fs');
 const path = require('path');
 
 const uri = 'mongodb://localhost:27017/web-scraper-db';
-const dbName = 'web-scraper-db';
-const collectionName = 'books';
 
 async function populate() {
     try {
@@ -37,4 +35,4 @@ async function populate() {
     }
 };
 
-populate();
+export default populate;

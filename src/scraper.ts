@@ -168,4 +168,4 @@ const scrapeAction = async () => {
     await browser.close();
 };
 
-scrapeAction();
+export default scrapeAction;
