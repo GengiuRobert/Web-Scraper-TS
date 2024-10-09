@@ -37,7 +37,7 @@ const updateBookById = async (req: Request, res: Response) => {
 
         const updatedBook = await Book.findById(id);
         if (updatedBook) {
-            res.status(201).send(updatedBook);
+            res.status(200).send(updatedBook);
         }
     } catch (error) {
         console.error(error);
@@ -54,7 +54,7 @@ const deleteBookById = async (req: Request, res: Response) => {
             res.status(404).send({ message: "book does not exist" })
         }
         else {
-            res.status(201).send(book)
+            res.status(200).send(book)
         }
     } catch (error) {
         console.log(error);
@@ -77,7 +77,7 @@ const scrapeBooks = async (req: Request, res: Response) => {
 const populateDataBaseBooks = async (req: Request, res: Response) => {
     try {
         await populate();
-        res.status(200).send({ message: "done populating data base" });
+        res.status(201).send({ message: "done populating data base" });
     } catch (error) {
         console.log(error);
         res.status(500).send({ message: "error during populating data base" });
