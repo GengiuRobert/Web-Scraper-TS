@@ -173,31 +173,31 @@ The `Step3Component` manages the display of books, deletion of books, and updati
 
 To clone the repository and run the backend server, follow these steps:
 
+0. **Let's assume that you have created a new directory called web-scraper where you clone the project**:
+    ```bash
+    mkdir web-scraper
+    cd ./web-scraper
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/GengiuRobert/Web-Scraper-TS.git
-2. **Navigate to the project directory for backend**:
-   ```bash
-   cd web-scraper
-3. **Install the dependencies for backend**:
+2. **Install the dependencies for backend**:
    ```bash
    npm install
-4. **Start the backend server**:
+3. **Start the backend server**:
    ```bash
    npm start
-5. **Backend server link**:
+4. **Backend server link**:
    ```bash
    http://localhost:4000/
-6. **Navigate to the project directory for frontend**:
+5. **Navigate to the project directory for frontend**:
    ```bash
-   cd web-scraper
    cd ./frontend/src/app
-7. **Install the dependencies for frontend**:
+6. **Install the dependencies for frontend**:
    ```bash
    npm install
-8. **Start the frontend server**:
+7. **Start the frontend server**:
    ```bash
    ng serve
-9. **Frontend server link**:
+8.  **Frontend server link**:
    ```bash
    http://localhost:4200/
