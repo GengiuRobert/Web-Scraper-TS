@@ -176,7 +176,7 @@ To clone the repository and run the backend server, follow these steps:
 0. **Let's assume that you have created a new directory called web-scraper where you clone the project**:
     ```bash
     mkdir web-scraper
-    cd ./web-scraper
+    cd ./web-scraper/Web-Scraper-TS
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/GengiuRobert/Web-Scraper-TS.git
