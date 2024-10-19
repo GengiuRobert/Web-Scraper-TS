@@ -17,7 +17,7 @@ export interface BookType extends Document {
 const bookSchema = new Schema<BookType>({
     imageSrc: String,
     ratingConverted: { type: Number, required: true },
-    titleName: { type: String, required: true },
+    titleName: { type: String, required: true, unique: true },
     priceValue: { type: Number, required: true },
     signOfGBP: String,
     fullLink: String,

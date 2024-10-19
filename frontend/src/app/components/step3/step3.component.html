@@ -1,0 +1,70 @@
+<main>
+    <div style="background-color: #4f3183">
+        <div class="container py-5">
+            <h1 class="text-warning display-2 roboto">Step by Step Tutorial</h1>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="alert-container">
+            <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+            <div *ngIf="errorMessage" class="alert alert-error">{{ errorMessage }}</div>
+        </div>
+        <div id="step1" class="step-container">
+            <h1>Step 3</h1>
+            <h2>View Scraped Content</h2>
+            <div id="fetchBtn">
+                <button id="fetchBtnnn" (click)="fetchBooks()" class="btn btn-primary">Fetch Books</button>
+            </div>
+
+            <div class="row" *ngIf="areBooksVisible">
+                <div *ngFor="let book of books" class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img [src]="book.imageSrc" class="card-img-top" alt="{{book.titleName}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{book.titleName}}</h5>
+                            <p class="card-text">
+                                <strong>Rating:</strong> {{book.ratingConverted}}/5<br>
+                                <strong>Price:</strong> {{book.signOfGBP}}{{book.priceValue}}<br>
+                                <strong>Genre:</strong> {{book.genre || 'N/A'}}<br>
+                                <strong>UPC:</strong> {{book.UPC || 'N/A'}}<br>
+                                <strong>Stock:</strong> {{book.stock !== undefined ? book.stock : 'N/A'}}<br>
+                                <strong>Description Word Count:</strong> {{book.wordsNumber || 'N/A'}}<br>
+                                <strong>Book ID:</strong> {{book._id}}
+                            </p>
+                            <button class="btn custom-card-btn btn-danger" (click)="deleteBook(book._id)">Delete
+                                Book</button>
+                            <button class="btn custom-card-btn btn-warning" (click)="toggleUpdateForm(book)">
+                                {{ selectedBook && selectedBook._id === book._id ? 'Cancel Update' : 'Update Book' }}
+                            </button>
+
+                            <div *ngIf="selectedBook && selectedBook._id === book._id" class="update-form">
+                                <form (ngSubmit)="submitUpdateBook()">
+                                    <div class="form-group">
+                                        <label for="titleName">Title</label>
+                                        <input type="text" [(ngModel)]="selectedBook.titleName" name="titleName"
+                                            class="form-control" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ratingConverted">Rating</label>
+                                        <input type="number" [(ngModel)]="selectedBook.ratingConverted"
+                                            name="ratingConverted" class="form-control" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="priceValue">Price</label>
+                                        <input type="number" [(ngModel)]="selectedBook.priceValue" name="priceValue"
+                                            class="form-control" required />
+                                    </div>
+                                    <button type="submit" class="btn custom-card-btn btn-primary">Confirm
+                                        Update</button>
+                                </form>
+                            </div>
+
+                            <a id="view-more-btn" [href]="book.fullLink" target="_blank"
+                                class="btn custom-card-btn btn-primary">View More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

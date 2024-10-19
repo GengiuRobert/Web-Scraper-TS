@@ -1,0 +1,33 @@
+<main>
+    <div style="background-color: #4f3183">
+        <div class="container py-5">
+            <h1 class="text-warning display-2 roboto">Step by Step Tutorial</h1>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="alert-container">
+            <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+            <div *ngIf="errorMessage" class="alert alert-error">{{ errorMessage }}</div>
+        </div>
+        <div class="container my-5">
+            <div id="step1" class="step-container">
+                <h1>Step 1</h1>
+                <h2>Scrape the Website</h2>
+                <p>This web scraper is designed to extract book-related data from the website
+                    <a href="https://books.toscrape.com" target="_blank"
+                        style="color: #4f3183; text-decoration: underline;">
+                        Books to Scrape</a>, a site made specifically for practicing web scraping. The application
+                    scrapes
+                    details like book titles, authors, and descriptions, then stores the results in a .json file after
+                    scraping.
+                </p>
+                <div class="button-container">
+                    <button class="custom-button" (click)="scrapeForBooks()">Start Scraping</button>
+                </div>
+                <div class="next-step-container">
+                    <button class="next-step-button" (click)="goToNextStep()">Next Step</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

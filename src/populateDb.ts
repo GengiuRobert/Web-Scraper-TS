@@ -16,7 +16,8 @@ async function populate() {
 
         for (const book of books) {
 
-            const existingBook = await Book.findOne({ title: book.titleName });
+            const normalizedTitle = book.titleName.toLowerCase();
+            const existingBook = await Book.findOne({ titleName: normalizedTitle });
             if (!existingBook) {
                 const newBook = new Book(book);
                 await newBook.save();
@@ -29,8 +30,6 @@ async function populate() {
         console.log("Books population complete.");
     } catch (error) {
         console.error('Error:', error);
-    } finally {
-        await mongoose.connection.close();
     }
 };
 

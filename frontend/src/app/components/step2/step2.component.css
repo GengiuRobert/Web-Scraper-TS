@@ -1,0 +1,131 @@
+h1,
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #6c757d;
+    text-align: justify;
+    margin: 0 auto 30px;
+    max-width: 800px;
+}
+
+.step-container {
+    background-color: #f8f9fa;
+    border: 2px solid #4f3183;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+}
+
+.step-container:hover {
+    transform: scale(1.02);
+}
+
+.step-container h1 {
+    font-size: 2rem;
+    color: #4f3183;
+}
+
+.step-container h2 {
+    font-size: 1.5rem;
+    color: #4f3183;
+}
+
+.step-container p {
+    font-size: 1.1rem;
+}
+
+.custom-button,
+.next-step-button,
+.previous-step-button {
+    background-color: #4f3183;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-button:hover,
+.next-step-button:hover,
+.previous-step-button:hover {
+    background-color: #6749a3;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.next-step-container {
+    position: absolute;
+    right: 0.2%;
+    top: 85%;
+}
+
+.previous-step-container {
+    position: absolute;
+    right: 88.2%;
+    top: 85%;
+}
+
+.alert-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    width: 90%;
+    margin: 10px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert-success {
+    background-color: #4caf50;
+    color: white;
+    border: 1px solid #3e8e41;
+}
+
+.alert-error {
+    background-color: #f44336;
+    color: white;
+    border: 1px solid #d32f2f;
+}
+
+
+@media (max-width: 768px) {
+
+    h1,
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .step-container {
+        padding: 20px;
+    }
+
+    .next-step-button,
+    .previous-step-button {
+        display: none;
+    }
+}

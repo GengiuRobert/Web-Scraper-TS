@@ -1,0 +1,37 @@
+<main>
+    <div style="background-color: #4f3183">
+        <div class="container py-5">
+            <h1 class="text-warning display-2 roboto">Step by Step Tutorial</h1>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="alert-container">
+            <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+            <div *ngIf="errorMessage" class="alert alert-error">{{ errorMessage }}</div>
+        </div>
+        <div class="container my-5">
+            <div id="step1" class="step-container">
+                <h1>Step 2</h1>
+                <h2>Populate Database</h2>
+                <p>After extracting all the data from the website
+                    <a href="https://books.toscrape.com" target="_blank"
+                        style="color: #4f3183; text-decoration: underline;">
+                        Books to Scrape</a> in the previous step, we will now use the generated <strong>.json</strong>
+                    file
+                    to populate the <strong>MongoDB</strong> database with all the book information scraped.
+                    In this step, we will load this data into the database, making it
+                    organized and accessible for further use.
+                </p>
+                <div class="button-container">
+                    <button class="custom-button" (click)="populateDataBase()">Populate Database</button>
+                    <div class="next-step-container">
+                        <button class="next-step-button" (click)="goToNextStep()">Next Step</button>
+                    </div>
+                    <div class="previous-step-container">
+                        <button class="previous-step-button" (click)="goToPreviousStep()">Previous Step</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

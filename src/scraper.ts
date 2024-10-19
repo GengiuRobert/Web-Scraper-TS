@@ -145,7 +145,9 @@ const scrapeAction = async () => {
     //open the browser and go to the url for scraping
     //newPage is a chromium browser page
     //puppeteer uses chormium 
-    const browser: Browser = await puppeteer.launch();
+    const browser: Browser = await puppeteer.launch({
+        headless: true
+    });
     const newPageFromBrowser = await browser.newPage();
     await newPageFromBrowser.goto(urlToScrape);
 
