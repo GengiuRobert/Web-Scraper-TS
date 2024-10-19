@@ -15,8 +15,8 @@ yarn-error.log*
 .env.production.local
 
 # Build outputs
-dist/
-build/
+/dist
+/build
 
 # Temporary files
 *.tmp
